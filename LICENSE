@@ -1,0 +1,32 @@
+Brood Mind: Terms of Use
+
+Copyright (c) 2026 Bill Nikiforakis. All rights reserved.
+
+Brood Mind, the desktop app and the `brood` command (together, "the Software"), is proprietary
+software. Its source code is not published.
+
+1. Use. You may download, install and use the Software free of charge, for any purpose, personal
+   or commercial, on any number of computers you use.
+
+2. Restrictions. You may not:
+   a. redistribute, sell, rent, lease or sublicense the Software, or publish copies of its
+      installers (link to https://github.com/bnikiforakis/BroodMind-releases instead);
+   b. modify, decompile, disassemble or reverse engineer the Software, except where applicable
+      law permits it despite this restriction;
+   c. remove or alter any copyright, license or attribution notice in the Software.
+
+3. Open-source components. The Software includes open-source components, listed with their
+   licenses in THIRD_PARTY_LICENSES. Their licenses apply to those components, and nothing in
+   these terms limits your rights under them.
+
+4. Updates. The Software can check for and install updates, only when you ask it to. Later
+   versions may come with different terms, including paid ones; each version is covered by the
+   terms published with it.
+
+5. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+   PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+6. Limitation of liability. IN NO EVENT SHALL THE AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY
+   CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
