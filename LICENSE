@@ -17,7 +17,10 @@ software. Its source code is not published.
 
 3. Open-source components. The Software includes open-source components, listed with their
    licenses in THIRD_PARTY_LICENSES. Their licenses apply to those components, and nothing in
-   these terms limits your rights under them.
+   these terms limits your rights under them. In particular, section 2 does not apply to
+   components under the GNU Lesser General Public License (such as the libraries bundled in the
+   Linux AppImage): you may modify them, replace them with your own versions, and reverse engineer
+   the Software as far as needed to debug such modifications.
 
 4. Updates. The Software can check for and install updates, only when you ask it to. Later
    versions may come with different terms, including paid ones; each version is covered by the
