@@ -21,6 +21,7 @@ any other command in a plain terminal view.
 - [Settings](#settings)
 - [Ending sessions](#ending-sessions)
 - [Keyboard shortcuts](#keyboard-shortcuts)
+- [How light is it?](#how-light-is-it)
 - [Updating Brood Mind](#updating-brood-mind)
 - [Troubleshooting](#troubleshooting)
 - [Uninstall](#uninstall)
@@ -56,8 +57,9 @@ sessions you start in a terminal yourself):
 - **Automation:** "Brood Mind wants to control Terminal" (or iTerm). Click **Allow**, so the app can open
   a terminal running your session.
 - **Accessibility** (Terminal.app only): Terminal has no scripting command for new tabs, so Brood Mind
-  presses ⌘T for you. Turn **Brood Mind** on under **System Settings › Privacy & Security ›
-  Accessibility**. Without it, sessions open in a new window instead of a new tab.
+  briefly brings Terminal forward and presses ⌘T for you, then returns. Add **Brood Mind** under
+  **System Settings › Privacy & Security › Accessibility** and switch it on. Without it, sessions open
+  in a new Terminal window in the background instead of a tab.
 
 ### Linux
 
@@ -130,7 +132,9 @@ On macOS the session list shows each terminal's own app icon.
 
 Click **+ New** (⌘N on macOS, Ctrl+N on Linux):
 
-1. **Agent:** Claude Code, Codex, Antigravity, Shell (`bash`) or Custom (any command).
+1. **Agent:** the agents installed on your computer (Claude Code, Codex, Antigravity), Shell (`bash`) or
+   Custom (any command). You only need the agents you use; install another one later, switch back
+   to Brood Mind, and it shows up here.
 2. **Model** and **Thinking** (for new agent sessions):
    - Claude Code: Fable, Opus, Sonnet or Haiku, thinking low / medium / high / xhigh / max. Starts at
      **Opus · medium**.
@@ -143,8 +147,10 @@ Click **+ New** (⌘N on macOS, Ctrl+N on Linux):
 4. **Project folder:** type it, click **Choose…**, or pick a recent one.
 5. **Name** (optional): shown in the list; defaults to the folder's name.
 6. **Open in:**
-   - **Terminal / iTerm2** (macOS) or your **Linux terminal**: Brood Mind opens a new tab (a new window if
-     none is open) running the session, then click **Start**;
+   - **Terminal / iTerm2** (macOS) or your **Linux terminal**: click **Start**. The session opens in a
+     new tab of your terminal (a new window if none is open) and you stay in Brood Mind: iTerm2 does it
+     in the background; Terminal comes forward for a moment to open the tab, then Brood Mind returns;
+     Linux terminals open, then Brood Mind takes the focus back;
    - **PyCharm or another terminal (copy a command):** click **Copy command**, then paste the copied line
      (`cd … && brood run …`) into that terminal.
 
@@ -189,9 +195,14 @@ far), and only works while the agent waits for you.
 
 ## Typing and keys
 
-- Clicking a session puts the cursor in the message box.
+- The message box keeps the cursor: after clicking a session, the screen or anywhere that isn't another
+  field, and when you come back to the window, you can type right away. Selecting text in the screen
+  (to copy it) and typing in other fields (search, dialogs) work as usual.
 - **Enter** sends what you typed (followed by Enter). **Shift+Enter** or **Ctrl+J** start a new line;
-  a multi-line message arrives as one paste. You can also click the ➤ button.
+  a message arrives as one paste, as from a terminal (slash commands like `/compact` are typed). You
+  can also click the ➤ button.
+- **Images and files:** drag them onto the window (or paste a file's path): their paths go into the
+  message box, and Claude Code attaches an image given by its path, as in a terminal.
 - Keys go to the session as in a terminal:
   - always: **Shift+Tab** (switch the agent's mode) and **Esc** (interrupt the agent);
   - when the message box is empty: **↑ ↓ ← →**, **Enter**, **Tab**, **Backspace**, **Ctrl+C**, for the
@@ -230,7 +241,7 @@ Every decision taken in Brood Mind is logged in `decisions.jsonl` in the app's d
 **Recent** (top of the session list) lists every past Claude Code, Codex and Antigravity session on this
 computer, including ones started without Brood Mind, newest first.
 
-- **Search** by title or folder, and filter by agent: All, Claude Code, Codex, Antigravity.
+- **Search** by title or folder, and filter by agent (one button per agent you have, or had sessions with).
 - Group **By date** (Today, Yesterday, …) or **By project** (by folder).
 - Hover a row and click **▶ Resume**: the session dialog opens with the resume command
   (`claude --resume <id>`, `codex resume <id>` or `agy --conversation <id>`) and the folder filled in;
@@ -241,11 +252,13 @@ computer, including ones started without Brood Mind, newest first.
 
 Open **Settings** at the top of the session list (⌘, on macOS, Ctrl+, on Linux):
 
-- **Brood Mind:** the app's version and **Check for updates** (see
+- **Brood Mind:** the app's version (also shown at the bottom of the session list; click it to come
+  here) and **Check for updates** (see
   [Updating Brood Mind](#updating-brood-mind)).
 - **Font size:** Small, Medium or Big for everything in Brood Mind (⌘+ / ⌘− or Ctrl+ / Ctrl− also work).
-- **Agents:** Claude Code, Codex and Antigravity, each with its version and where it's installed (or
-  *Not installed*). Codex also shows *"<version> available"* when it already knows of a newer version.
+- **Agents:** each agent installed on your computer, with its version and where it's installed;
+  agents you don't have are only mentioned ("Also works with: …"), nothing else needed. Codex also
+  shows *"<version> available"* when it already knows of a newer version.
   **Update** runs the agent's own updater (`claude update`, `codex update`, `agy update`), which goes
   online and installs a newer version if there is one; the row then says **Up to date** or **Updated
   from A to B**, or shows the updater's error. Running sessions keep their version until you restart
@@ -256,8 +269,9 @@ Open **Settings** at the top of the session list (⌘, on macOS, Ctrl+, on Linux
 
 ## Ending sessions
 
-- **End session** (top right of the screen view) asks the agent to stop, like closing its terminal, and
-  forces it after 3 seconds.
+- **End session** (top right of the screen view, or **right-click** a session in the list) asks the agent
+  to stop, like closing its terminal, and forces it after 3 seconds. Right-clicking a failed or
+  disconnected session offers **Remove**.
 - A session that ends normally (it exits, you end it, you close its terminal or press Ctrl+C) leaves the
   list; it's still in **Recent** to resume. A failed session stays so you can read the error; **Remove**
   clears it.
@@ -277,6 +291,32 @@ Open **Settings** at the top of the session list (⌘, on macOS, Ctrl+, on Linux
 | Shift+Enter, Ctrl+J | Shift+Enter, Ctrl+J | New line in the message box |
 | Esc | Esc | Interrupt the agent |
 | Shift+Tab | Shift+Tab | Switch the agent's mode |
+
+## How light is it?
+
+Measured on a MacBook with an Apple M5 (10 cores), macOS 26, Brood Mind 0.1.0, each scenario for 60
+seconds, in a 1280×800 window unless noted. "Brood Mind" here is everything it adds up to: the app,
+the web view that draws its window, and the small `brood` wrapper of every session. That is Brood
+Mind's own cost, on top of what you run anyway: your terminal, your shell and the agents themselves
+aren't counted, as they use the same CPU and memory with or without Brood Mind. For scale, on the
+same Mac a single Claude Code session used about 375 MB and Terminal about 175 MB.
+
+| Scenario | CPU, average | CPU, peak | Memory, average | Memory, peak |
+|---|---|---|---|---|
+| Nothing happening (1 session waiting) | 0.6% | 4.9% | 226 MB | 273 MB |
+| 6 sessions waiting | 1.2% | 13.8% | 218 MB | 325 MB |
+| An agent working, shown in the window | 8.2% | 15.9% | 290 MB | 308 MB |
+| A session printing ~50 lines a second nonstop, shown | 12.7% | 18.1% | 269 MB | 283 MB |
+| Full screen (2560×1080), 6 sessions waiting | 0.8% | 8.6% | 151 MB | 259 MB |
+
+- **CPU** is a share of *one* core: 1% of one core is 0.1% of a 10-core Mac. While nothing changes,
+  Brood Mind does next to nothing: the window is told when a screen changes instead of checking.
+  What you see on screen costs the most; sessions you aren't looking at cost almost nothing.
+- **Memory** is the footprint, the figure Activity Monitor shows. Most of it is the web view that
+  draws the window (about 150–250 MB; less while the window is out of sight). Each session adds
+  1.5–3 MB, plus about 1.5 MB per 1,000 lines of its history (the last 5,000 lines are kept).
+- Quitting Brood Mind doesn't stop your agents (see [Ending sessions](#ending-sessions)), so you can
+  close it whenever you don't need it and open it again later.
 
 ## Updating Brood Mind
 
@@ -313,8 +353,12 @@ state, model and context.
 **macOS: "Brood Mind can't be opened" / "is damaged".** The app isn't signed by Apple; see step 2 of
 [macOS](#macos). Make sure you open the copy in Applications, not the one on the disk image.
 
-**macOS: sessions open in a new window, not a tab (Terminal.app).** Turn Brood Mind on under
-**System Settings › Privacy & Security › Accessibility**, then quit and reopen Brood Mind.
+**macOS: sessions open in a new window, not a tab (Terminal.app).** Brood Mind has no Accessibility
+permission, or macOS no longer applies it: the entry can still show as on. Since 0.1.1 every version
+is signed with the same certificate and keeps the permission across updates; the update from 0.1.0 to
+0.1.1 drops it once. In **System Settings › Privacy & Security › Accessibility**, select Brood Mind,
+remove it (**−**), add it again (**+**, Applications › Brood Mind) and switch it on. Brood Mind's
+notice in the window says when this happened.
 
 **macOS: starting a session from the app does nothing.** Brood Mind may have been denied control of
 Terminal or iTerm. Allow it under **System Settings › Privacy & Security › Automation › Brood Mind**.
