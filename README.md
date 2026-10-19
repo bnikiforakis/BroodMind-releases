@@ -58,7 +58,8 @@ sessions you start in a terminal yourself):
   a terminal running your session.
 - **Accessibility** (Terminal.app only): Terminal has no scripting command for new tabs, so Brood Mind
   briefly brings Terminal forward and presses ⌘T for you, then returns. Add **Brood Mind** under
-  **System Settings › Privacy & Security › Accessibility** and switch it on. Without it, sessions open
+  **System Settings › Privacy & Security › Accessibility** (on macOS 27 it is called **Device Control
+  and Data Access**) and switch it on. Without it, sessions open
   in a new Terminal window in the background instead of a tab.
 
 ### Linux
@@ -356,7 +357,8 @@ state, model and context.
 **macOS: sessions open in a new window, not a tab (Terminal.app).** Brood Mind has no Accessibility
 permission, or macOS no longer applies it: the entry can still show as on. Since 0.1.1 every version
 is signed with the same certificate and keeps the permission across updates; the update from 0.1.0 to
-0.1.1 drops it once. In **System Settings › Privacy & Security › Accessibility**, select Brood Mind,
+0.1.1 drops it once. In **System Settings › Privacy & Security › Accessibility** (macOS 27: **Device
+Control and Data Access**), select Brood Mind,
 remove it (**−**), add it again (**+**, Applications › Brood Mind) and switch it on. Brood Mind's
 notice in the window says when this happened.
 
