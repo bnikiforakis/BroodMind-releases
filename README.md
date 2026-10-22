@@ -89,6 +89,10 @@ Notifications use your desktop's notification service. Brood Mind can open sessi
 Konsole, kitty, Alacritty, WezTerm** or your distribution's default terminal (`x-terminal-emulator`),
 whichever are installed.
 
+**GNOME Terminal opens a new window for each session?** Set it to open tabs instead: GNOME Terminal ›
+Preferences › General › **Open new terminals in: Tab** (or run
+`gsettings set org.gnome.Terminal.Legacy.Settings new-terminal-mode tab`).
+
 ## First run
 
 1. **Put `brood` on your PATH.** Agents run under the small `brood` command, which is how the app sees
@@ -288,10 +292,16 @@ Open **Settings** at the top of the session list (⌘, on macOS, Ctrl+, on Linux
 | ⌘1 … ⌘9 | Ctrl+1 … Ctrl+9 | Select the 1st … 9th session in the list |
 | ⌘+ / ⌘− | Ctrl++ / Ctrl+− | Font size |
 | ⌘⇧A / ⌘⇧D | Ctrl+Shift+A / Ctrl+Shift+D | Allow / deny the permission request on screen |
+| ⌥⌘↑ / ⌥⌘↓ | Ctrl+Alt+↑ / Ctrl+Alt+↓ | Previous / next session in the list |
+| ⌘⇧J | Ctrl+Shift+J | Go to the session that has waited longest for you |
+| ⌘⇧T | Ctrl+Shift+T | New shell session (no agent) in the selected session's folder, like **>_** |
+| ⌘⇧E twice | Ctrl+Shift+E twice | End the selected session (Close shell for a shell) |
 | Enter | Enter | Send the message (empty box: Enter to the session) |
 | Shift+Enter, Ctrl+J | Shift+Enter, Ctrl+J | New line in the message box |
 | Esc | Esc | Interrupt the agent |
 | Shift+Tab | Shift+Tab | Switch the agent's mode |
+
+**A keypad or macro keys** (e.g. Logitech MX Keypad / MX Creative Console with Logi Options+, a Stream Deck): assign each key one of the shortcuts above, ideally in a profile for Brood Mind only: New (⌘N), shell (⌘⇧T), next / previous session, needs-you, Allow, Deny, End session (the key pressed twice).
 
 ## How light is it?
 
